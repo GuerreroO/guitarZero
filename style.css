@@ -1,0 +1,22 @@
+#board{
+  width: 335px;
+  height: 650px;
+  border: solid red;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  position: relative;
+}
+.grid{
+  width: 50px;
+  height: 50px;
+  border: solid silver;
+  background: brown;
+}
+
+.note{
+  width: 50px;
+  height: 50px;
+  background: blue;
+  position: absolute;
+}
