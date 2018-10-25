@@ -14,9 +14,45 @@
   background: brown;
 }
 
-.note{
-  width: 50px;
-  height: 50px;
+/* .note{
+  width: 25px;
+  height: 25px;
   background: blue;
+  position: absolute;
+} */
+.blueNote{
+  width: 25px;
+  height: 25px;
+  background: blue;
+  position: absolute;
+}
+.redNote{
+  width: 25px;
+  height: 25px;
+  background: red;
+  position: absolute;
+}
+.greenNote{
+  width: 25px;
+  height: 25px;
+  background: green;
+  position: absolute;
+}
+.yellowNote{
+  width: 25px;
+  height: 25px;
+  background: yellow;
+  position: absolute;
+}
+.purpleNote{
+  width: 25px;
+  height: 25px;
+  background: purple;
+  position: absolute;
+}
+.orangeNote{
+  width: 25px;
+  height: 25px;
+  background: orange;
   position: absolute;
 }

@@ -2,6 +2,7 @@ const board = document.querySelector('#board');
 const startBtn = document.querySelector('#start');
 const hitBox = document.querySelector('hitBox');
 let pos = 0;
+let score = 0;
 //Start game function
 function start(){
   startBtn.addEventListener('click', renderGrid);
@@ -17,7 +18,7 @@ function renderGrid(){
   }
   for(let i = 0; i < 6; i += 1){
     grid = document.createElement('div');
-    grid.className = 'hitBox';
+    grid.className = 'Btn[i] hitBox';
     board.appendChild(grid);
   }
   renderNote();
@@ -42,7 +43,13 @@ function renderNote(){
           case 81: //Q
             console.log('Q');
             if(pos >= 400 && pos <= 500){
+              currentPos = pos;
+              score += 100;
+              note.remove();
               console.log('you did it!');
+            }
+            else{
+
             }
             break;
           case 87: //W
@@ -67,38 +74,12 @@ function renderNote(){
       note.style.top = pos + 'px';
     }
   }
+  return score;
 }
 
 
 
-// checkAccuracy{
-//   if()
-// }
 
-//Game Controls
-document.querySelector('body').addEventListener('keydown', (e) => {
-  const keyCode = e.keyCode;
-  switch(keyCode){
-    case 81: //Q
-      console.log('Q');
-      break;
-    case 87: //W
-      console.log('W');
-      break;
-    case 69: //E
-      console.log('E');
-      break;
-    case 82: //R
-      console.log('R');
-      break;
-    case 84: //T
-      console.log('T');
-      break;
-    case 89: //Y
-      console.log('Y');
-      break;
-  }
-});
 
 
 
