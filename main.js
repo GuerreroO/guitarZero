@@ -35,15 +35,17 @@ function renderNote(){
     let noteClass = document.querySelectorAll('.note');
     let note0 = document.querySelector('#note0') // noteClass= divs with class of .note
     console.log(counter, 'this is');
+    // console.log(noteClass[0], 'something');
     if(counter === 0){randomNote()}
     let noteId = document.querySelector('#note0'); //noteId = first note
     pos += 10;
     noteClass.forEach(e => { e.style.top = pos + 'px'; });
     counter++;
+
     if(counter === 1000){
       clearInterval(id);
     }
-    else{
+    else if(true){
       //Game Controls
       document.querySelector('body').addEventListener('keydown', (e) => {
         const keyCode = e.keyCode;
@@ -51,12 +53,12 @@ function renderNote(){
           case 81: //Q
             console.log('Q');
             if(pos >= 600 && pos <= 650){
-              pos = 0;
+              // pos = 0;
               score += 100;
               randomNote();
               console.log(noteClass, "whattup")
-              noteClassremove(); //need to give individual Id's to all divs
-              clearInterval(id);
+              noteClass.remove(); //need to give individual Id's to all divs
+              // clearInterval(id);
               console.log('you did it!');
             }
             else{
