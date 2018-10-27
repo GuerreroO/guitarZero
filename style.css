@@ -1,3 +1,6 @@
+body{
+  background: linear-gradient(red, black);
+}
 #board{
   width: 335px;
   height: 650px;
@@ -12,6 +15,18 @@
   height: 50px;
   border: solid silver;
   background: brown;
+}
+#scoreBoard{
+  width: 300px;
+  height: 25px;
+  background: black;
+  color: white;
+}
+#getReady{
+  width: 335px;
+  height: 50px;
+  background: black;
+  color: white;
 }
 #loser{
   width: 335px;

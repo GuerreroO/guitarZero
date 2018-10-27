@@ -29,25 +29,20 @@ function renderGrid() {
     grid.className = 'Btn[i] hitBox';
     board.appendChild(grid);
   }
-  scoreBoard = document.createElement('div');
-  scoreBoard.id = 'scoreBoard';
-  scoreBoard.innerHTML = score;
-  body.appendChild(scoreBoard);
-  renderNote();
+  level1();
 }
 
 
 //Render Note function
-function renderNote() {
-
-  let id = setInterval(notes, 50);
+function level1() {
+  let id = setInterval(notes, 75);
 
   function notes() {
     console.log('this is failure', fails);
     if(fails === 10){
       loser = document.createElement('div');
       loser.id = 'loser';
-      loser.innerHTML = 'Game Over, refresh the page!'
+      loser.innerHTML = 'Game Over, refresh the page!';
       board.appendChild(loser);
       clearInterval(id);
     }
@@ -67,8 +62,17 @@ function renderNote() {
       }
     });
     counter++;
-    if (counter === 250) {
+    if (counter === 500) {
       clearInterval(id);
+      getReady = document.createElement('div');
+      getReady.id = 'getReady';
+      getReady.innerHTML = 'Get ready for level2!';
+      body.appendChild(getReady);
+      scoreBoard = document.createElement('div');
+      scoreBoard.id = 'scoreBoard';
+      scoreBoard.innerHTML = `Your score is ${score}`;
+      body.appendChild(scoreBoard);
+      level2()
     } else if (true) {
       //Game Controls
       document.querySelector('body').addEventListener('keyup', (e) => {
@@ -144,10 +148,242 @@ function renderNote() {
         }
       });
     }
-    return score;
   }
 }
 
+function level2() {
+
+  let id = setInterval(notes, 50);
+
+  function notes() {
+    console.log('this is failure', fails);
+    if(fails === 10){
+      loser = document.createElement('div');
+      loser.id = 'loser';
+      loser.innerHTML = 'Game Over, refresh the page!'
+      board.appendChild(loser);
+      clearInterval(id);
+    }
+    let noteClass = document.querySelectorAll('.note');
+    let note0 = document.querySelector('#note0'); // noteClass= divs with class of .note
+    setTimeout(randomNote, Math.random(Math.floor()*5000)+10000);
+    let noteId = document.querySelector('#note0'); //noteId = first note
+    noteClass.forEach(e => {
+      let pos = parseInt(e.style.top) || 0;
+      pos += 10
+      if (e.style.top === '660px') {
+        console.log('hello');
+        fails += 1;
+        e.remove();
+      } else {
+        e.style.top = pos + 'px';
+      }
+    });
+    counter++;
+    if (counter === 800) {
+      clearInterval(id);
+      getReady = document.createElement('div');
+      getReady.id = 'getReady';
+      getReady.innerHTML = 'Get ready for level2!';
+      body.appendChild(getReady);
+      scoreBoard = document.createElement('div');
+      scoreBoard.id = 'scoreBoard';
+      scoreBoard.innerHTML = `Your score is ${score}`;
+      body.appendChild(scoreBoard);
+      level3();
+    } else if (true) {
+      //Game Controls
+      document.querySelector('body').addEventListener('keyup', (e) => {
+        console.log(e.keyCode)
+        const keyCode = e.keyCode;
+        switch (keyCode) {
+          case 81: //Q
+          console.log('Q');
+          noteClass.forEach(eachNote => {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+              if (eachNote.classList.contains('greenNote')) {
+                score += 100;
+                eachNote.remove();
+              }
+            }
+          });
+          break;
+          case 87: //W
+          console.log('W');
+          noteClass.forEach(eachNote => {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+              if (eachNote.classList.contains('redNote')) {
+                score += 100;
+                eachNote.remove();
+              }
+            }
+          });
+          break;
+          case 69: //E
+          console.log('E');
+          noteClass.forEach(eachNote => {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+              if (eachNote.classList.contains('blueNote')) {
+                score += 100;
+                eachNote.remove();
+              }
+            }
+          });
+          break;
+          case 82: //R
+          console.log('R');
+          noteClass.forEach(eachNote => {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+              if (eachNote.classList.contains('yellowNote')) {
+                score += 100;
+                eachNote.remove();
+              }
+            }
+          });
+          break;
+          case 84: //T
+          console.log('T');
+          noteClass.forEach(eachNote => {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+              if (eachNote.classList.contains('purpleNote')) {
+                score += 100;
+                eachNote.remove();
+              }
+            }
+          });
+          break;
+          case 89: //Y
+          console.log('Y');
+          noteClass.forEach(eachNote => {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+              if (eachNote.classList.contains('orangeNote')) {
+                score += 100;
+                eachNote.remove();
+              }
+            }
+          });
+          break;
+        }
+      });
+    }
+  }
+}
+
+function level3() {
+  let id = setInterval(notes, 30);
+
+  function notes() {
+    console.log('this is failure', fails);
+    if(fails === 10){
+      loser = document.createElement('div');
+      loser.id = 'loser';
+      loser.innerHTML = 'Game Over, refresh the page!'
+      board.appendChild(loser);
+      clearInterval(id);
+    }
+    let noteClass = document.querySelectorAll('.note');
+    let note0 = document.querySelector('#note0'); // noteClass= divs with class of .note
+    setTimeout(randomNote, Math.random(Math.floor()*5000)+10000);
+    let noteId = document.querySelector('#note0'); //noteId = first note
+    noteClass.forEach(e => {
+      let pos = parseInt(e.style.top) || 0;
+      pos += 10
+      if (e.style.top === '660px') {
+        console.log('hello');
+        fails += 1;
+        e.remove();
+      } else {
+        e.style.top = pos + 'px';
+      }
+    });
+    counter++;
+    if (counter === 1100) {
+      clearInterval(id);
+      getReady = document.createElement('div');
+      getReady.id = 'getReady';
+      getReady.innerHTML = 'Hey, you won!';
+      body.appendChild(getReady);
+      scoreBoard = document.createElement('div');
+      scoreBoard.id = 'scoreBoard';
+      scoreBoard.innerHTML = `Your score is ${score}`;
+      body.appendChild(scoreBoard);
+    } else if (true) {
+      //Game Controls
+      document.querySelector('body').addEventListener('keyup', (e) => {
+        console.log(e.keyCode)
+        const keyCode = e.keyCode;
+        switch (keyCode) {
+          case 81: //Q
+          console.log('Q');
+          noteClass.forEach(eachNote => {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+              if (eachNote.classList.contains('greenNote')) {
+                score += 100;
+                eachNote.remove();
+              }
+            }
+          });
+          break;
+          case 87: //W
+          console.log('W');
+          noteClass.forEach(eachNote => {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+              if (eachNote.classList.contains('redNote')) {
+                score += 100;
+                eachNote.remove();
+              }
+            }
+          });
+          break;
+          case 69: //E
+          console.log('E');
+          noteClass.forEach(eachNote => {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+              if (eachNote.classList.contains('blueNote')) {
+                score += 100;
+                eachNote.remove();
+              }
+            }
+          });
+          break;
+          case 82: //R
+          console.log('R');
+          noteClass.forEach(eachNote => {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+              if (eachNote.classList.contains('yellowNote')) {
+                score += 100;
+                eachNote.remove();
+              }
+            }
+          });
+          break;
+          case 84: //T
+          console.log('T');
+          noteClass.forEach(eachNote => {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+              if (eachNote.classList.contains('purpleNote')) {
+                score += 100;
+                eachNote.remove();
+              }
+            }
+          });
+          break;
+          case 89: //Y
+          console.log('Y');
+          noteClass.forEach(eachNote => {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+              if (eachNote.classList.contains('orangeNote')) {
+                score += 100;
+                eachNote.remove();
+              }
+            }
+          });
+          break;
+        }
+      });
+    }
+  }
+}
 
 function randomNote() { //NoteProduction
   if(noteCounter === 10){
@@ -164,8 +400,8 @@ function randomNote() { //NoteProduction
 }
 
 function whichColumn(note) {
-  note.style.left = "0px"
-  // note.style.left = (Math.floor(Math.random() * 6)) * 60 + 'px'; //note[i] is given a style of left with it's value randomy generated
+  // note.style.left = "0px"
+  note.style.left = (Math.floor(Math.random() * 6)) * 60 + 'px'; //note[i] is given a style of left with it's value randomy generated
   switch (note.style.left) {
     case '0px':
       note.className = 'note greenNote'
