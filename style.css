@@ -13,6 +13,15 @@
   border: solid silver;
   background: brown;
 }
+#loser{
+  width: 335px;
+  height: 325px;
+  position: absolute;
+  top: 150px;
+  background: black;
+  color: white;
+
+}
 .note{
   border-radius: 100px;
 }
@@ -27,7 +36,7 @@
   width: 25px;
   height: 25px;
   background: red;
-  position: absolute;
+  position: absolute
 }
 .greenNote{
   width: 25px;
