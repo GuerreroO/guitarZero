@@ -6,6 +6,7 @@ let pos = 0;
 let score = 0;
 let i = 0;
 let x = 0;
+noteCounter = 0;
 
 //Start game function
 function start() {
@@ -33,15 +34,13 @@ function renderGrid() {
 
 //Render Note function
 function renderNote() {
-  let id = setInterval(notes, 1000);
+  let id = setInterval(notes, 100);
 
   function notes() {
     let noteClass = document.querySelectorAll('.note');
     let note0 = document.querySelector('#note0'); // noteClass= divs with class of .note
     console.log(counter, 'this is counter');
-    if (counter === 0) {
-      randomNote()
-    }
+
     setTimeout(randomNote, Math.random(Math.floor()*5000)+10000);
 
     let noteId = document.querySelector('#note0'); //noteId = first note
@@ -186,15 +185,22 @@ function renderNote() {
 }
 
 function randomNote() { //NoteProduction
-  let note = document.createElement('div'); //note div is created
-  note.id = `note${i}`; // note is given an id of "note[i]"
-  whichColumn(note); // run whichColumn function
-  board.appendChild(note); // the note is appended to the board
+  if(noteCounter === 10){
+    let note = document.createElement('div'); //note div is created
+    note.id = `note${i}`; // note is given an id of "note[i]"
+    whichColumn(note); // run whichColumn function
+    board.appendChild(note); // the note is appended to the board
+    noteCounter = 0;
+  }
+  else{
+    console.log(noteCounter);
+    noteCounter += 1;
+  }
 }
 
 function whichColumn(note) {
-  note.style.left = "0px"
-  // note.style.left = (Math.floor(Math.random() * 6)) * 60 + 'px'; //note[i] is given a style of left with it's value randomy generated
+  // note.style.left = "0px"
+  note.style.left = (Math.floor(Math.random() * 6)) * 60 + 'px'; //note[i] is given a style of left with it's value randomy generated
   switch (note.style.left) {
     case '0px':
       note.className = 'note greenNote'
