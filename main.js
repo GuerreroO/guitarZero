@@ -66,18 +66,10 @@ function renderNote() {
           case 81: //Q
             console.log('Q');
             noteClass.forEach(eachNote => {
-              // console.log(eachNote.style.top, 'yo');
               if (eachNote.style.top >= '500px' && eachNote.style.top <= '650px') {
                 if (eachNote.classList.contains('greenNote')) {
-                  // console.log('did it work?');
-                  // x += 1;
-                  // console.log(x);
-                  // if(x === 100){
-                  //   x = 0;
-                  //  console.log('you did it!');
                    score += 100;
                    eachNote.remove();
-                 // }
                 }
               }
             });
@@ -85,18 +77,10 @@ function renderNote() {
           case 87: //W
             console.log('W');
             noteClass.forEach(eachNote => {
-              // console.log(eachNote.style.top, 'yo');
               if (eachNote.style.top >= '500px' && eachNote.style.top <= '650px') {
                 if (eachNote.classList.contains('redNote')) {
-                  // console.log('did it work?');
-                  x += 1;
-                  console.log(x);
-                  if(x === 100){
-                    x = 0;
-                   console.log('you did it!');
                    score += 100;
                    eachNote.remove();
-                 }
                 }
               }
             });
@@ -104,18 +88,10 @@ function renderNote() {
           case 69: //E
             console.log('E');
             noteClass.forEach(eachNote => {
-              // console.log(eachNote.style.top, 'yo');
               if (eachNote.style.top >= '500px' && eachNote.style.top <= '650px') {
                 if (eachNote.classList.contains('blueNote')) {
-                  // console.log('did it work?');
-                  x += 1;
-                  console.log(x);
-                  if(x === 100){
-                    x = 0;
-                   console.log('you did it!');
                    score += 100;
                    eachNote.remove();
-                 }
                 }
               }
             });
@@ -123,18 +99,10 @@ function renderNote() {
           case 82: //R
             console.log('R');
             noteClass.forEach(eachNote => {
-              // console.log(eachNote.style.top, 'yo');
               if (eachNote.style.top >= '500px' && eachNote.style.top <= '650px') {
                 if (eachNote.classList.contains('yellowNote')) {
-                  // console.log('did it work?');
-                  x += 1;
-                  console.log(x);
-                  if(x === 100){
-                    x = 0;
-                   console.log('you did it!');
                    score += 100;
                    eachNote.remove();
-                 }
                 }
               }
             });
@@ -142,18 +110,10 @@ function renderNote() {
           case 84: //T
             console.log('T');
             noteClass.forEach(eachNote => {
-              // console.log(eachNote.style.top, 'yo');
               if (eachNote.style.top >= '500px' && eachNote.style.top <= '650px') {
                 if (eachNote.classList.contains('purpleNote')) {
-                  // console.log('did it work?');
-                  x += 1;
-                  console.log(x);
-                  if(x === 100){
-                    x = 0;
-                   console.log('you did it!');
                    score += 100;
                    eachNote.remove();
-                 }
                 }
               }
             });
@@ -161,18 +121,10 @@ function renderNote() {
           case 89: //Y
             console.log('Y');
             noteClass.forEach(eachNote => {
-              // console.log(eachNote.style.top, 'yo');
               if (eachNote.style.top >= '500px' && eachNote.style.top <= '650px') {
                 if (eachNote.classList.contains('orangeNote')) {
-                  // console.log('did it work?');
-                  x += 1;
-                  console.log(x);
-                  if(x === 100){
-                    x = 0;
-                   console.log('you did it!');
                    score += 100;
                    eachNote.remove();
-                 }
                 }
               }
             });
