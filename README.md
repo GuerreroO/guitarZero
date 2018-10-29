@@ -65,9 +65,6 @@ a rockstar!
 
 3. How to randomize the time in which the notes appeared
 
-4. How can I get the game to accurately detect when the div is at a range
-   so that when the key is pressed it would register as off-range, slightly
-   within the perfect range, and perfectly within the perfect range.
 
 ## Solutions
 
@@ -135,15 +132,49 @@ noteClass.forEach(e => {
   } else {
     e.style.top = pos + 'px';
   }
+}
 ```
+3. Randomizing the time in which the notes fell added a level of difficulty to the
+   game by not allowing the player to sync into the rhythm of the note production
+   the rhythm of each was randomized by using the code snippet bellow inside a setInterval.
+   This code ran the function randomNote with a delay of anywhere between 10 to 15 seconds,
+   producing random notes within that time frame. Initially this created a massive
+   wave of notes they still being produced too fast and their style.top to closely
+   to each other. An if statement was added to the randomNote function stating that
+   a note will only be produces if the setInterval has ran 7 times, this was tracked
+   using the variable noteCounter which was incremented with the else statement.
+
+```javascript
+  setTimeout(randomNote, Math.random(Math.floor()*5000)+10000);
+
+  function randomNote() {
+
+    if(noteCounter === 7){
+      let note = document.createElement('div');
+      whichColumn(note);
+      board.appendChild(note);
+      noteCounter = 0;
+    }
+    else{
+      console.log(noteCounter);
+      noteCounter += 1;
+    }
+  }
+```
+## Unsolved Issues
+
+1. The game does not start until a certain amount of time has passed, which is about
+   10 seconds, this seems to be a result of the setInterval used to run the game.
+   changing it inherently changes the way everything functions, so that was left as is.
+
+2. the keyup event listeners runs within the setInterval as well, for some odd reason
+   this causes the event listener to hundreds of times with a single press of a button.
+   this causes a few bugs in the game. The game pauses every time a key is pressed
+   due to the massive amounts of calling the eventListener and the score incrementation
+   tends to be massive rather then, incrementing by 100, it increments anywhere between
+   50,000 - 100,000 points
 
 
-### Ideas to solve these issues
-1. divs(notes) generated will receive two random numbers. the first number will be the column
-   in which the div will fall through, the second number will be at what point in time
-   will this div be generated.
 
-2. I believe I may have to set coordinates along with conditionals that checks whether
-   a note was in range when a key is pressed down
-
+## wireframe
 ![wireframe](wireFrame.jpg)
