@@ -34,6 +34,7 @@ function start() {
 
 function renderGrid() {
   startBtn.remove();
+
   title.style.animation = 'titleFlash 3s linear';
   let scoreBoard = document.createElement('div');
   scoreBoard.id = 'scoreBoard';
@@ -55,8 +56,8 @@ function renderGrid() {
 
 function level1() {
   let id = setInterval(notes, 60);
-  scoreBoard.innerHTML = `Your score is ${score}`;
   function notes() {
+    scoreBoard.innerHTML = `Your score is ${score}`;
     if(fails === 10){
       let loser = document.createElement('div');
       loser.id = 'loser';
