@@ -1,6 +1,9 @@
 html{
   background: black;
 }
+#titleScreen{
+  display: flex;
+}
 #board{
   width: 335px;
   height: 650px;
@@ -11,14 +14,18 @@ html{
   position: relative;
 }
 h1{
+  font-size: 30px;
   color: blue;
+  flex: 1;
 
 }
 #start{
-  position: absolute;
-  top: 600px;
-  left: 400px;
-
+  flex: 1;
+  color: white;
+  border: solid blue;
+  font-size: 30px;
+  background: #333333;
+  color: red;
 }
 .grid{
   width: 50px;

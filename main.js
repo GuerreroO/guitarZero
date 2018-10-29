@@ -23,13 +23,13 @@ let x = 0;
 let noteCounter = 0;
 let fails = 0;
 
-//Start game function
+
 function start() {
   startBtn.addEventListener('click', renderGrid);
   console.log('score is', score);
 }
 
-//Render Grid Function
+
 function renderGrid() {
   startBtn.remove();
   title.style.animation = 'titleFlash 3s linear';
@@ -47,7 +47,7 @@ function renderGrid() {
 }
 
 
-//Render Note function
+
 function level1() {
   let id = setInterval(notes, 60);
 
@@ -92,17 +92,15 @@ function level1() {
       body.appendChild(scoreBoard);
       level2()
     } else if (true) {
-      //Game Controls
       document.querySelector('body').addEventListener('keyup', (e) => {
         console.log(e.keyCode)
         const keyCode = e.keyCode;
         switch (keyCode) {
-          case 81: //Q
+          case 81:
           console.log('Q');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('greenNote')) {
-                // rootNote.load();
                 rootNote.play();
                 score += 100;
                 eachNote.remove();
@@ -110,7 +108,7 @@ function level1() {
             }
           });
           break;
-          case 87: //W
+          case 87:
           console.log('W');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
@@ -122,7 +120,7 @@ function level1() {
             }
           });
           break;
-          case 69: //E
+          case 69:
           console.log('E');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
@@ -134,7 +132,7 @@ function level1() {
             }
           });
           break;
-          case 82: //R
+          case 82:
           console.log('R');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
@@ -146,7 +144,7 @@ function level1() {
             }
           });
           break;
-          case 84: //T
+          case 84:
           console.log('T');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
@@ -158,7 +156,7 @@ function level1() {
             }
           });
           break;
-          case 89: //Y
+          case 89:
           console.log('Y');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
@@ -178,7 +176,6 @@ function level1() {
 
 function level2() {
   let id = setInterval(notes, 60);
-
   function notes() {
     console.log('this is failure', fails);
     if(fails === 10){
@@ -214,17 +211,15 @@ function level2() {
       body.appendChild(scoreBoard);
       level3()
     } else if (true) {
-      //Game Controls
       document.querySelector('body').addEventListener('keyup', (e) => {
         console.log(e.keyCode)
         const keyCode = e.keyCode;
         switch (keyCode) {
-          case 81: //Q
+          case 81:
           console.log('Q');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('greenNote')) {
-                // rootNote.load();
                 rootNote.play();
                 score += 100;
                 eachNote.remove();
@@ -232,7 +227,7 @@ function level2() {
             }
           });
           break;
-          case 87: //W
+          case 87:
           console.log('W');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
@@ -244,7 +239,7 @@ function level2() {
             }
           });
           break;
-          case 69: //E
+          case 69:
           console.log('E');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
@@ -268,7 +263,7 @@ function level2() {
             }
           });
           break;
-          case 84: //T
+          case 84:
           console.log('T');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
@@ -280,7 +275,7 @@ function level2() {
             }
           });
           break;
-          case 89: //Y
+          case 89:
           console.log('Y');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
@@ -337,17 +332,15 @@ function level3() {
       scoreBoard.innerHTML = `Your score is ${score}`;
       body.appendChild(scoreBoard);
     } else if (true) {
-      //Game Controls
       document.querySelector('body').addEventListener('keyup', (e) => {
         console.log(e.keyCode)
         const keyCode = e.keyCode;
         switch (keyCode) {
-          case 81: //Q
+          case 81:
           console.log('Q');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('greenNote')) {
-                // rootNote.load();
                 rootNote.play();
                 score += 100;
                 eachNote.remove();
@@ -355,7 +348,7 @@ function level3() {
             }
           });
           break;
-          case 87: //W
+          case 87:
           console.log('W');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
@@ -367,7 +360,7 @@ function level3() {
             }
           });
           break;
-          case 69: //E
+          case 69:
           console.log('E');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
@@ -379,7 +372,7 @@ function level3() {
             }
           });
           break;
-          case 82: //R
+          case 82:
           console.log('R');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
@@ -391,7 +384,7 @@ function level3() {
             }
           });
           break;
-          case 84: //T
+          case 84:
           console.log('T');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
@@ -403,7 +396,7 @@ function level3() {
             }
           });
           break;
-          case 89: //Y
+          case 89:
           console.log('Y');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
@@ -421,12 +414,12 @@ function level3() {
   }
 }
 
-function randomNote() { //NoteProduction
+function randomNote() {
+
   if(noteCounter === 7){
-    let note = document.createElement('div'); //note div is created
-    note.id = `note${i}`; // note is given an id of "note[i]"
-    whichColumn(note); // run whichColumn function
-    board.appendChild(note); // the note is appended to the board
+    let note = document.createElement('div');
+    whichColumn(note);
+    board.appendChild(note);
     noteCounter = 0;
   }
   else{
@@ -437,7 +430,7 @@ function randomNote() { //NoteProduction
 
 function whichColumn(note) {
   // note.style.left = "0px"
-  note.style.left = (Math.floor(Math.random() * 6)) * 60 + 'px'; //note[i] is given a style of left with it's value randomy generated
+  note.style.left = (Math.floor(Math.random() * 6)) * 60 + 'px';
   switch (note.style.left) {
     case '0px':
       note.className = 'note greenNote'

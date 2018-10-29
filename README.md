@@ -1,4 +1,4 @@
-#GuitarZero
+# GuitarZero
 Have you ever been listening to your favorite Rock song, played air-guitar, and said
 to yourself "Damn, I wish could play that guitar solo!"? Have you ever started playing guitar
 and quit after realizing the amount of effort it actually takes to play these tunes?
@@ -10,7 +10,7 @@ a rockstar!
 
 
 
-##MVP
+## MVP
 1. The game starts a 13*6(6 columns, 13 rows) grid is generated. and a series of
    randomized notes began to fall on any of the 6 columns
 
@@ -30,7 +30,7 @@ a rockstar!
 
 
 
-##Post-MVP specs
+## Post-MVP specs
 
 1. There will be a start menu, and you may choose a song out of 3 to play.
    You must complete the song before it to unlock the next song.
@@ -52,12 +52,12 @@ a rockstar!
 5. There will be a menu at the end of the game, whether the player wins or loses, with options of
    picking a new song or trying again.
 
-###Tech
+### Tech
 
- The game will be built using basic HTML, CSS, and Javascript
+ This game was built using basic HTML, CSS, and Javascript
 
 
-###problems foreseen
+### problems foreseen
 
 1. How to have a series of divs fall at random/specific times through
     a random/specific column.
@@ -65,10 +65,12 @@ a rockstar!
    so that when the key is pressed it would register as off-range, slightly
    within the perfect range, and perfectly within the perfect range
 
-###Ideas to solve these issues
+### Ideas to solve these issues
 1. divs(notes) generated will receive two random numbers. the first number will be the column
    in which the div will fall through, the second number will be at what point in time
    will this div be generated.
 
 2. I believe I may have to set coordinates along with conditionals that checks whether
    a note was in range when a key is pressed down
+
+![wireframe](wireFrame.JPG) 
