@@ -26,13 +26,13 @@ let fails = 0;
 
 function start() {
   startBtn.addEventListener('click', renderGrid);
+  console.log('score is', score);
 }
 
 
 function renderGrid() {
   startBtn.remove();
   title.style.animation = 'titleFlash 3s linear';
-
   for (let i = 0; i < 66; i += 1) {
     grid = document.createElement('div');
     grid.className = 'grid';
@@ -52,6 +52,7 @@ function level1() {
   let id = setInterval(notes, 60);
 
   function notes() {
+    console.log('this is failure', fails);
     if(fails === 10){
       let loser = document.createElement('div');
       loser.id = 'loser';
@@ -65,6 +66,7 @@ function level1() {
       let pos = parseInt(e.style.top) || 0;
       pos += 10
       if (e.style.top === '660px') {
+        console.log('hello');
         fails += 1;
         e.remove();
       } else {
@@ -91,9 +93,11 @@ function level1() {
       level2()
     } else if (true) {
       document.querySelector('body').addEventListener('keyup', (e) => {
+        console.log(e.keyCode)
         const keyCode = e.keyCode;
         switch (keyCode) {
           case 81:
+          console.log('Q');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('greenNote')) {
@@ -105,6 +109,7 @@ function level1() {
           });
           break;
           case 87:
+          console.log('W');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('redNote')) {
@@ -116,6 +121,7 @@ function level1() {
           });
           break;
           case 69:
+          console.log('E');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('blueNote')) {
@@ -127,6 +133,7 @@ function level1() {
           });
           break;
           case 82:
+          console.log('R');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('yellowNote')) {
@@ -138,6 +145,7 @@ function level1() {
           });
           break;
           case 84:
+          console.log('T');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('purpleNote')) {
@@ -149,6 +157,7 @@ function level1() {
           });
           break;
           case 89:
+          console.log('Y');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('orangeNote')) {
@@ -168,6 +177,7 @@ function level1() {
 function level2() {
   let id = setInterval(notes, 60);
   function notes() {
+    console.log('this is failure', fails);
     if(fails === 10){
       let loser = document.createElement('div');
       loser.id = 'loser';
@@ -181,6 +191,7 @@ function level2() {
       let pos = parseInt(e.style.top) || 0;
       pos += 10
       if (e.style.top === '660px') {
+        console.log('hello');
         fails += 1;
         e.remove();
       } else {
@@ -201,9 +212,11 @@ function level2() {
       level3()
     } else if (true) {
       document.querySelector('body').addEventListener('keyup', (e) => {
+        console.log(e.keyCode)
         const keyCode = e.keyCode;
         switch (keyCode) {
           case 81:
+          console.log('Q');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('greenNote')) {
@@ -215,6 +228,7 @@ function level2() {
           });
           break;
           case 87:
+          console.log('W');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('redNote')) {
@@ -226,6 +240,7 @@ function level2() {
           });
           break;
           case 69:
+          console.log('E');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('blueNote')) {
@@ -237,6 +252,7 @@ function level2() {
           });
           break;
           case 82: //R
+          console.log('R');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('yellowNote')) {
@@ -248,6 +264,7 @@ function level2() {
           });
           break;
           case 84:
+          console.log('T');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('purpleNote')) {
@@ -259,6 +276,7 @@ function level2() {
           });
           break;
           case 89:
+          console.log('Y');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('orangeNote')) {
@@ -279,6 +297,7 @@ function level3() {
   let id = setInterval(notes, 30);
 
   function notes() {
+    console.log('this is failure', fails);
     if(fails === 10){
       loser = document.createElement('div');
       loser.id = 'loser';
@@ -294,6 +313,7 @@ function level3() {
       let pos = parseInt(e.style.top) || 0;
       pos += 10
       if (e.style.top === '660px') {
+        console.log('hello');
         fails += 1;
         e.remove();
       } else {
@@ -313,9 +333,11 @@ function level3() {
       body.appendChild(scoreBoard);
     } else if (true) {
       document.querySelector('body').addEventListener('keyup', (e) => {
+        console.log(e.keyCode)
         const keyCode = e.keyCode;
         switch (keyCode) {
           case 81:
+          console.log('Q');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('greenNote')) {
@@ -327,6 +349,7 @@ function level3() {
           });
           break;
           case 87:
+          console.log('W');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('redNote')) {
@@ -338,6 +361,7 @@ function level3() {
           });
           break;
           case 69:
+          console.log('E');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('blueNote')) {
@@ -349,6 +373,7 @@ function level3() {
           });
           break;
           case 82:
+          console.log('R');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('yellowNote')) {
@@ -360,6 +385,7 @@ function level3() {
           });
           break;
           case 84:
+          console.log('T');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('purpleNote')) {
@@ -371,6 +397,7 @@ function level3() {
           });
           break;
           case 89:
+          console.log('Y');
           noteClass.forEach(eachNote => {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('orangeNote')) {
@@ -396,11 +423,13 @@ function randomNote() {
     noteCounter = 0;
   }
   else{
+    console.log(noteCounter);
     noteCounter += 1;
   }
 }
 
 function whichColumn(note) {
+  // note.style.left = "0px"
   note.style.left = (Math.floor(Math.random() * 6)) * 60 + 'px';
   switch (note.style.left) {
     case '0px':
