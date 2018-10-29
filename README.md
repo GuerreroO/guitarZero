@@ -61,9 +61,11 @@ a rockstar!
 
 1. How to randomize which note appeared
 
-2. How to randomize the time in which the notes appeared
+2. how to increment each note's position value separately
 
-2. How can I get the game to accurately detect when the div is at a range
+3. How to randomize the time in which the notes appeared
+
+4. How can I get the game to accurately detect when the div is at a range
    so that when the key is pressed it would register as off-range, slightly
    within the perfect range, and perfectly within the perfect range.
 
@@ -71,10 +73,11 @@ a rockstar!
 
 1.  I used the function randomNote to run at a random setInterval every time this
     function ran it would created a 'note' element. Then it would run the whichColumn
-    function that would assign a style.Left with a random value between 1 - 6 multpilied
+    function that would assign a style.Left with a random value between 1 - 6 multiplied
     by 60 this allows notes to appear at random distances between that range, and thus
     falling in random columns. whichColumn also adds a specific class allowing any note
     within that column to be manipulated once it's style.top reaches a certain point.
+
 ```javascript
 function randomNote() {
 
@@ -115,7 +118,24 @@ function whichColumn(note) {
   }
 }
 ```
+2. being able to increment each notes style.top separately was crucial to the development
+   of the game because it allows the notes to fall at different moments. This code
+   snippet runs inside a setInterval every time it runs, it checks every single currently
+   existing notes position. It sets a pos variable to it's current style.top and
+   then it increments it, and it continues to do this separately for each note.
 
+```javascript
+noteClass.forEach(e => {
+  let pos = parseInt(e.style.top) || 0;
+  pos += 10;
+  if (e.style.top === '660px') {
+    console.log('hello');
+    fails += 1;
+    e.remove();
+  } else {
+    e.style.top = pos + 'px';
+  }
+```
 
 
 ### Ideas to solve these issues
