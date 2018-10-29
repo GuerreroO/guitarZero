@@ -73,4 +73,4 @@ a rockstar!
 2. I believe I may have to set coordinates along with conditionals that checks whether
    a note was in range when a key is pressed down
 
-![wireframe](wireFrame.JPG) 
+![wireframe](wireFrame.jpg) 
