@@ -1,8 +1,10 @@
 const body = document.querySelector('body');
 const board = document.querySelector('#board');
-const startBtn = document.querySelector('#start');
 const hitBox = document.querySelector('hitBox');
-const title = body.querySelector('h1');
+titleStartScore = body.querySelector('#titleStartScore');
+const startBtn = titleStartScore.querySelector('#start')
+const title = titleStartScore.querySelector('h1');
+
 let rootNote = document.createElement('audio');
 rootNote.src = "audio/A.wav"
 let thirdNote = document.createElement('audio');
@@ -15,6 +17,7 @@ let sixthNote = document.createElement('audio');
 sixthNote.src = "audio/G.wav"
 let rootHigh = document.createElement('audio');
 rootHigh.src = "audio/highA.wav"
+
 let counter = 0;
 let pos = 0;
 let score = 0;
@@ -32,7 +35,9 @@ function start() {
 function renderGrid() {
   startBtn.remove();
   title.style.animation = 'titleFlash 3s linear';
-
+  let scoreBoard = document.createElement('div');
+  scoreBoard.id = 'scoreBoard';
+  titleStartScore.appendChild(scoreBoard);
   for (let i = 0; i < 66; i += 1) {
     grid = document.createElement('div');
     grid.className = 'grid';
@@ -50,7 +55,7 @@ function renderGrid() {
 
 function level1() {
   let id = setInterval(notes, 60);
-
+  scoreBoard.innerHTML = `Your score is ${score}`;
   function notes() {
     if(fails === 10){
       let loser = document.createElement('div');
@@ -84,10 +89,6 @@ function level1() {
       getReady.id = 'getReady';
       getReady.innerHTML = 'Get ready for level2!';
       body.appendChild(getReady);
-      let scoreBoard = document.createElement('div');
-      scoreBoard.id = 'scoreBoard';
-      scoreBoard.innerHTML = `Your score is ${score}`;
-      body.appendChild(scoreBoard);
       level2()
     } else if (true) {
       document.querySelector('body').addEventListener('keyup', (e) => {
@@ -98,8 +99,8 @@ function level1() {
             if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('greenNote')) {
                 rootNote.play();
-                score += 100;
                 eachNote.remove();
+                score += 100;
               }
             }
           });
@@ -401,6 +402,7 @@ function randomNote() {
 }
 
 function whichColumn(note) {
+  // note.style.left = "0px"
   note.style.left = (Math.floor(Math.random() * 6)) * 60 + 'px';
   switch (note.style.left) {
     case '0px':

@@ -1,13 +1,12 @@
 html{
   background: black;
 }
-#titleScreen{
+#titleStartScore{
   display: flex;
 }
 #board{
   width: 335px;
   height: 650px;
-  /* border: solid red; */
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
