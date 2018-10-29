@@ -57,13 +57,66 @@ a rockstar!
  This game was built using basic HTML, CSS, and Javascript
 
 
-### problems foreseen
+## Problems
 
-1. How to have a series of divs fall at random/specific times through
-    a random/specific column.
+1. How to randomize which note appeared
+
+2. How to randomize the time in which the notes appeared
+
 2. How can I get the game to accurately detect when the div is at a range
    so that when the key is pressed it would register as off-range, slightly
-   within the perfect range, and perfectly within the perfect range
+   within the perfect range, and perfectly within the perfect range.
+
+## Solutions
+
+1.  I used the function randomNote to run at a random setInterval every time this
+    function ran it would created a 'note' element. Then it would run the whichColumn
+    function that would assign a style.Left with a random value between 1 - 6 multpilied
+    by 60 this allows notes to appear at random distances between that range, and thus
+    falling in random columns. whichColumn also adds a specific class allowing any note
+    within that column to be manipulated once it's style.top reaches a certain point.
+```javascript
+function randomNote() {
+
+  if(noteCounter === 7){
+    let note = document.createElement('div');
+    whichColumn(note);
+    board.appendChild(note);
+    noteCounter = 0;
+  }
+  else{
+    console.log(noteCounter);
+    noteCounter += 1;
+  }
+}
+
+function whichColumn(note) {
+  // note.style.left = "0px"
+  note.style.left = (Math.floor(Math.random() * 6)) * 60 + 'px';
+  switch (note.style.left) {
+    case '0px':
+      note.className = 'note greenNote'
+      break;
+    case '60px':
+      note.className = 'note redNote'
+      break;
+    case '120px':
+      note.className = 'note blueNote'
+      break;
+    case '180px':
+      note.className = 'note yellowNote'
+      break;
+    case '240px':
+      note.className = 'note purpleNote'
+      break;
+    case '300px':
+      note.className = 'note orangeNote'
+      break;
+  }
+}
+```
+
+
 
 ### Ideas to solve these issues
 1. divs(notes) generated will receive two random numbers. the first number will be the column
@@ -73,4 +126,4 @@ a rockstar!
 2. I believe I may have to set coordinates along with conditionals that checks whether
    a note was in range when a key is pressed down
 
-![wireframe](wireFrame.jpg) 
+![wireframe](wireFrame.jpg)
