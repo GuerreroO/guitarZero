@@ -1,14 +1,24 @@
-body{
-  background: linear-gradient(red, black);
+html{
+  background: black;
 }
 #board{
   width: 335px;
   height: 650px;
-  border: solid red;
+  /* border: solid red; */
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   position: relative;
+}
+h1{
+  color: blue;
+
+}
+#start{
+  position: absolute;
+  top: 600px;
+  left: 400px;
+
 }
 .grid{
   width: 50px;
@@ -79,8 +89,22 @@ body{
 }
 
 .hitBox{
-  background: black;
+  background: cyan;
   width: 50px;
-  height: 50px;
+  height: 65px;
   border: solid silver;
+}
+
+@keyframes titleFlash{
+  0%{color: blue;}
+  10%{color: red;}
+  20%{color: blue;}
+  30%{color: red;}
+  40%{color: blue;}
+  50%{color: red;}
+  60%{color: blue;}
+  70%{color: red;}
+  80%{color: blue;}
+  90%{color: red;}
+  100%{color: blue;}
 }

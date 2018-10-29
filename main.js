@@ -2,6 +2,19 @@ const body = document.querySelector('body');
 const board = document.querySelector('#board');
 const startBtn = document.querySelector('#start');
 const hitBox = document.querySelector('hitBox');
+const title = body.querySelector('h1');
+let rootNote = document.createElement('audio');
+rootNote.src = "audio/A.wav"
+let thirdNote = document.createElement('audio');
+thirdNote.src = "audio/C.wav"
+let fourthNote = document.createElement('audio');
+fourthNote.src = "audio/D.wav"
+let fifthNote = document.createElement('audio');
+fifthNote.src = "audio/E.wav"
+let sixthNote = document.createElement('audio');
+sixthNote.src = "audio/G.wav"
+let rootHigh = document.createElement('audio');
+rootHigh.src = "audio/highA.wav"
 let counter = 0;
 let pos = 0;
 let score = 0;
@@ -18,10 +31,11 @@ function start() {
 
 //Render Grid Function
 function renderGrid() {
+  startBtn.remove();
+  title.style.animation = 'titleFlash 3s linear';
   for (let i = 0; i < 66; i += 1) {
     grid = document.createElement('div');
     grid.className = 'grid';
-    // grid.dataset.index = i;
     board.appendChild(grid);
   }
   for (let i = 0; i < 6; i += 1) {
@@ -35,21 +49,19 @@ function renderGrid() {
 
 //Render Note function
 function level1() {
-  let id = setInterval(notes, 75);
+  let id = setInterval(notes, 60);
 
   function notes() {
     console.log('this is failure', fails);
     if(fails === 10){
-      loser = document.createElement('div');
+      let loser = document.createElement('div');
       loser.id = 'loser';
       loser.innerHTML = 'Game Over, refresh the page!';
       board.appendChild(loser);
       clearInterval(id);
     }
     let noteClass = document.querySelectorAll('.note');
-    let note0 = document.querySelector('#note0'); // noteClass= divs with class of .note
     setTimeout(randomNote, Math.random(Math.floor()*5000)+10000);
-    let noteId = document.querySelector('#note0'); //noteId = first note
     noteClass.forEach(e => {
       let pos = parseInt(e.style.top) || 0;
       pos += 10
@@ -62,13 +74,19 @@ function level1() {
       }
     });
     counter++;
-    if (counter === 500) {
+    if(counter === 130){
+      backingTrack = document.createElement('audio');
+      backingTrack.src = "audio/backingTrackInA.mp3"
+      backingTrack.load();
+      backingTrack.play();
+    }
+    if (counter === 1000) {
       clearInterval(id);
-      getReady = document.createElement('div');
+      let getReady = document.createElement('div');
       getReady.id = 'getReady';
       getReady.innerHTML = 'Get ready for level2!';
       body.appendChild(getReady);
-      scoreBoard = document.createElement('div');
+      let scoreBoard = document.createElement('div');
       scoreBoard.id = 'scoreBoard';
       scoreBoard.innerHTML = `Your score is ${score}`;
       body.appendChild(scoreBoard);
@@ -82,8 +100,10 @@ function level1() {
           case 81: //Q
           console.log('Q');
           noteClass.forEach(eachNote => {
-            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('greenNote')) {
+                // rootNote.load();
+                rootNote.play();
                 score += 100;
                 eachNote.remove();
               }
@@ -93,8 +113,9 @@ function level1() {
           case 87: //W
           console.log('W');
           noteClass.forEach(eachNote => {
-            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('redNote')) {
+                thirdNote.play();
                 score += 100;
                 eachNote.remove();
               }
@@ -104,8 +125,9 @@ function level1() {
           case 69: //E
           console.log('E');
           noteClass.forEach(eachNote => {
-            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('blueNote')) {
+                fourthNote.play();
                 score += 100;
                 eachNote.remove();
               }
@@ -115,8 +137,9 @@ function level1() {
           case 82: //R
           console.log('R');
           noteClass.forEach(eachNote => {
-            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('yellowNote')) {
+                fifthNote.play();
                 score += 100;
                 eachNote.remove();
               }
@@ -126,8 +149,9 @@ function level1() {
           case 84: //T
           console.log('T');
           noteClass.forEach(eachNote => {
-            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('purpleNote')) {
+                sixthNote.play();
                 score += 100;
                 eachNote.remove();
               }
@@ -137,8 +161,9 @@ function level1() {
           case 89: //Y
           console.log('Y');
           noteClass.forEach(eachNote => {
-            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('orangeNote')) {
+                rootHigh.play();
                 score += 100;
                 eachNote.remove();
               }
@@ -152,22 +177,19 @@ function level1() {
 }
 
 function level2() {
-
-  let id = setInterval(notes, 50);
+  let id = setInterval(notes, 60);
 
   function notes() {
     console.log('this is failure', fails);
     if(fails === 10){
-      loser = document.createElement('div');
+      let loser = document.createElement('div');
       loser.id = 'loser';
-      loser.innerHTML = 'Game Over, refresh the page!'
+      loser.innerHTML = 'Game Over, refresh the page!';
       board.appendChild(loser);
       clearInterval(id);
     }
     let noteClass = document.querySelectorAll('.note');
-    let note0 = document.querySelector('#note0'); // noteClass= divs with class of .note
     setTimeout(randomNote, Math.random(Math.floor()*5000)+10000);
-    let noteId = document.querySelector('#note0'); //noteId = first note
     noteClass.forEach(e => {
       let pos = parseInt(e.style.top) || 0;
       pos += 10
@@ -180,17 +202,17 @@ function level2() {
       }
     });
     counter++;
-    if (counter === 800) {
+    if (counter === 2000) {
       clearInterval(id);
-      getReady = document.createElement('div');
+      let getReady = document.createElement('div');
       getReady.id = 'getReady';
       getReady.innerHTML = 'Get ready for level2!';
       body.appendChild(getReady);
-      scoreBoard = document.createElement('div');
+      let scoreBoard = document.createElement('div');
       scoreBoard.id = 'scoreBoard';
       scoreBoard.innerHTML = `Your score is ${score}`;
       body.appendChild(scoreBoard);
-      level3();
+      level3()
     } else if (true) {
       //Game Controls
       document.querySelector('body').addEventListener('keyup', (e) => {
@@ -200,8 +222,10 @@ function level2() {
           case 81: //Q
           console.log('Q');
           noteClass.forEach(eachNote => {
-            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('greenNote')) {
+                // rootNote.load();
+                rootNote.play();
                 score += 100;
                 eachNote.remove();
               }
@@ -211,8 +235,9 @@ function level2() {
           case 87: //W
           console.log('W');
           noteClass.forEach(eachNote => {
-            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('redNote')) {
+                thirdNote.play();
                 score += 100;
                 eachNote.remove();
               }
@@ -222,8 +247,9 @@ function level2() {
           case 69: //E
           console.log('E');
           noteClass.forEach(eachNote => {
-            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('blueNote')) {
+                fourthNote.play();
                 score += 100;
                 eachNote.remove();
               }
@@ -233,8 +259,9 @@ function level2() {
           case 82: //R
           console.log('R');
           noteClass.forEach(eachNote => {
-            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('yellowNote')) {
+                fifthNote.play();
                 score += 100;
                 eachNote.remove();
               }
@@ -244,8 +271,9 @@ function level2() {
           case 84: //T
           console.log('T');
           noteClass.forEach(eachNote => {
-            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('purpleNote')) {
+                sixthNote.play();
                 score += 100;
                 eachNote.remove();
               }
@@ -255,8 +283,9 @@ function level2() {
           case 89: //Y
           console.log('Y');
           noteClass.forEach(eachNote => {
-            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('orangeNote')) {
+                rootHigh.play();
                 score += 100;
                 eachNote.remove();
               }
@@ -297,7 +326,7 @@ function level3() {
       }
     });
     counter++;
-    if (counter === 1100) {
+    if (counter === 3000) {
       clearInterval(id);
       getReady = document.createElement('div');
       getReady.id = 'getReady';
@@ -316,8 +345,10 @@ function level3() {
           case 81: //Q
           console.log('Q');
           noteClass.forEach(eachNote => {
-            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('greenNote')) {
+                // rootNote.load();
+                rootNote.play();
                 score += 100;
                 eachNote.remove();
               }
@@ -327,8 +358,9 @@ function level3() {
           case 87: //W
           console.log('W');
           noteClass.forEach(eachNote => {
-            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('redNote')) {
+                thirdNote.play();
                 score += 100;
                 eachNote.remove();
               }
@@ -338,8 +370,9 @@ function level3() {
           case 69: //E
           console.log('E');
           noteClass.forEach(eachNote => {
-            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('blueNote')) {
+                fourthNote.play();
                 score += 100;
                 eachNote.remove();
               }
@@ -349,8 +382,9 @@ function level3() {
           case 82: //R
           console.log('R');
           noteClass.forEach(eachNote => {
-            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('yellowNote')) {
+                fifthNote.play();
                 score += 100;
                 eachNote.remove();
               }
@@ -360,8 +394,9 @@ function level3() {
           case 84: //T
           console.log('T');
           noteClass.forEach(eachNote => {
-            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('purpleNote')) {
+                sixthNote.play();
                 score += 100;
                 eachNote.remove();
               }
@@ -371,8 +406,9 @@ function level3() {
           case 89: //Y
           console.log('Y');
           noteClass.forEach(eachNote => {
-            if (eachNote.style.top >= '600px' && eachNote.style.top <= '650px') {
+            if (eachNote.style.top >= '600px' && eachNote.style.top <= '665px') {
               if (eachNote.classList.contains('orangeNote')) {
+                rootHigh.play();
                 score += 100;
                 eachNote.remove();
               }
@@ -386,7 +422,7 @@ function level3() {
 }
 
 function randomNote() { //NoteProduction
-  if(noteCounter === 10){
+  if(noteCounter === 7){
     let note = document.createElement('div'); //note div is created
     note.id = `note${i}`; // note is given an id of "note[i]"
     whichColumn(note); // run whichColumn function
